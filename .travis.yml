@@ -13,4 +13,4 @@ before_script:
   - docker-compose ps
 
 script:
-  - echo "Exchange rate is working!"
+  - docker-compose exec web bash -c 'python -m pytest tests.py'

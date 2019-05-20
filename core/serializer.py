@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 
 
 def dof_format(data):
-    soup = BeautifulSoup(data, "html.parser")
+    soup = BeautifulSoup(data, 'html.parser')
     row = soup.find('tr', attrs={'class': 'renglonNon'})
     values = row.text.replace('\n', '').replace('\r', '').split(' ')
     values = list(filter(None, values))
