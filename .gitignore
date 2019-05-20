@@ -12,3 +12,6 @@ __pycache__/
 
 # virtualenv
 exchange-rate/
+
+# Local Files
+core/config/local_settings.py

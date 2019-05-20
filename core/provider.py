@@ -2,10 +2,8 @@ import datetime
 
 import requests
 from bs4 import BeautifulSoup
-
-DOF_URL = 'http://www.banxico.org.mx/tipcamb/tipCamMIAction.do'
-FIXER_URL = 'http://data.fixer.io/api/latest?access_key=9409a6f3c2f6273668a769f1e97f3444&symbols=USD,MXN'
-BANXICO_URL = 'https://www.banxico.org.mx/SieAPIRest/service/v1/series/SF63528/datos/oportuno'
+from settings import BANXICO_API_TOKEN
+from urls import BANXICO_URL, DOF_URL, FIXER_URL
 
 
 def dof():
@@ -34,10 +32,7 @@ def fixer():
 
 def banxico():
     data = requests.get(
-        BANXICO_URL,
-        headers={
-            'Bmx-Token': '0b85ede92372eda41f7172b12762cd0282621412084dcc6fb9b3c7b06a6ba52b'
-        },
+        BANXICO_URL, headers={'Bmx-Token': BANXICO_API_TOKEN}
     ).json()
     value = float(data['bmx']['series'][0]['datos'][0]['dato'])
     last_updated = datetime.datetime.strptime(
