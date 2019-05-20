@@ -1,2 +1,4 @@
-# exchange-rate
-Coding Challenge
+# Exchange Rate
+
+## Coding Challenge
+
