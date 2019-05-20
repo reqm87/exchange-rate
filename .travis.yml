@@ -13,4 +13,4 @@ before_script:
   - docker-compose ps
 
 script:
-  - echo "Hello world!"
+  - echo "Exchange rate is working!"

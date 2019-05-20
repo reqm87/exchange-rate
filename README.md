@@ -1,4 +1,3 @@
 # Exchange Rate
 
 ## Coding Challenge
-
