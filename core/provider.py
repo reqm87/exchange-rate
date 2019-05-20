@@ -1,9 +1,25 @@
 import datetime
 
 import requests
+from bs4 import BeautifulSoup
 
+DOF_URL = 'http://www.banxico.org.mx/tipcamb/tipCamMIAction.do'
 FIXER_URL = 'http://data.fixer.io/api/latest?access_key=9409a6f3c2f6273668a769f1e97f3444&symbols=USD,MXN'
 BANXICO_URL = 'https://www.banxico.org.mx/SieAPIRest/service/v1/series/SF63528/datos/oportuno'
+
+
+def dof():
+    response = requests.get(DOF_URL)
+    soup = BeautifulSoup(response.text, "html.parser")
+    row = soup.find('tr', attrs={'class': 'renglonNon'})
+    values = row.text.replace('\n', '').replace('\r', '').split(' ')
+    values = list(filter(None, values))
+    value = float(values[1])
+    last_updated = datetime.datetime.strptime(
+        values[0], '%d/%m/%Y'
+    ).isoformat()
+    result = {'dof': {'value': value, 'last_updated': last_updated}}
+    return result
 
 
 def fixer():
