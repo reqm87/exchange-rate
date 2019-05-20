@@ -1,6 +1,6 @@
 from flask import Flask, jsonify
 
-from provider import fixer
+from provider import banxico, fixer
 
 app = Flask(__name__)
 
@@ -9,6 +9,7 @@ app = Flask(__name__)
 def exchange_rate():
     rates = []
     rates.append(fixer())
+    rates.append(banxico())
     result = {'rates': rates}
     return jsonify(result)
 
