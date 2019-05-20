@@ -42,9 +42,9 @@ sudo docker-compose up -d
 
 + The final step is create the local settings file.
 
-Please, create a new file called "local_settings.py" in "exchange-rate/core/config".
+Please, create a new file called **"local_settings.py"** in **"exchange-rate/core/config"**.
 
-Copy the information from the file "local_settings_template.py" into it.
+Copy the information from the file **"local_settings_template.py"** into it.
 
 Change the information corresponding to the configuration that you did before.
 
